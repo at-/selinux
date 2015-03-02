@@ -9,6 +9,9 @@ Galera SELinux Policy
 
 ## Usage
 ``` shell
+ [root@linux ~]# semanage port -m -t mysqld_port_t -p tcp 4444
+ [root@linux ~]# semanage port -a -t mysqld_port_t -p tcp 4567
+ [root@linux ~]# semanage port -a -t mysqld_port_t -p tcp 4568
  [root@linux ~]# checkmodule -Mmo mariadb-galera-cluster.mod mariadb-galera-cluster.te
  [root@linux ~]# semodule_package -m mariadb-galera-cluster.mod -o mariadb-galera-cluster.pp
  [root@linux ~]# semodule -i mariadb-galera-cluster.pp
